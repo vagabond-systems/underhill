@@ -7,8 +7,13 @@
     read -r VPN_USERNAME
     read -r VPN_PASSWORD
 } <creds.txt
-docker stop underhill-cartographer > /dev/null 2>&1
-docker rm underhill-cartographer > /dev/null 2>&1
+docker stop underhill-cartographer >/dev/null 2>&1
+docker rm underhill-cartographer >/dev/null 2>&1
+docker pull josiahdc/cartographer:"$TAG"
+docker pull josiahdc/trailhead:"${TAG}"
+docker pull josiahdc/switchback:"${TAG}"
+docker pull josiahdc/zenith:"${TAG}"
+docker pull josiahdc/pathfinder:"${TAG}"
 docker run \
     --restart always \
     -d \
